@@ -1,9 +1,5 @@
 #!/usr/bin/python
-#get request to to get string
-#regex the string
-#convert to md5
-#post request hash=
-#return output
+#Takes a string from a site, converts string to md5 and send it back
 
 import requests
 import re
