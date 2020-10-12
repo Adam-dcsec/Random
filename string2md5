@@ -1,0 +1,44 @@
+#!/usr/bin/python
+#get request to to get string
+#regex the string
+#convert to md5
+#post request hash=
+#return output
+
+import requests
+import re
+import hashlib
+
+#Constant URL
+url = 'http://127.0.0.1/'
+
+#Saving a session since if we just send a post request after a get request it isnt the same session so it wont work will say that md5 doesnt match
+print('THIS IS YOUR GET REQUEST')
+s = requests.Session()
+sSession = s.get(url)
+html = sSession.text
+print(html)
+
+#It is supposed to match all strings (values if you will) within an html tag, doesnt work for whatever reason and gives me a multi dimensional list
+#Returned list that houses the hash then return the hash from the (now) non multi dimensional list
+#Pull string
+print('THIS IS YOUR STRING')
+multiList = re.findall("(&[A-Za-z]+?;)|(<.+?>)|(<\/\w+>)|([\w-]+)|([ ~!@#$%^&*()+=?:;\"{}\[\]|,.\\/]+)", html)[23]
+hashme = (multiList[3])
+print(hashme)
+
+#Calculate MD5
+print('THIS IS YOUR MD5')
+md5me = hashlib.md5(hashme.encode('utf-8')).hexdigest()
+print(md5me)
+
+
+#Now that I have the hash I create a post request parameter variable
+print('THIS IS YOUR POST PARM')
+postParm = {'hash':md5me}
+print(postParm)
+
+#Send request using variable I created
+print('POST REQUEST')
+p = s.post(url, postParm)
+print(p.text)
