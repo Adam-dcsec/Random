@@ -6,8 +6,6 @@ import os
 
 HOST = '' 
 PORT = 8080 
-#path = '/root/Desktop/Scripts/testpad'
-
 #test = 'index.html'
 
 #Function that dirwalks recursively and endings content based on if file was found in webroot or not
