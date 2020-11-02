@@ -59,7 +59,7 @@ while True:
     #Assigning data to the connection recieved
     s = conn.recv(1024)
     
-    #Finding the requested content to serve
+    #Finding what is requested
     ss = s.split()[1]
     serveMe = ss.decode("utf-8")
     print(serveMe)
