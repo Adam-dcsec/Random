@@ -19,7 +19,7 @@ def walkSend(fileToBeServed):
           #print(name)
           if os.path.join(root, name) == '.' + fileToBeServed:
           #File has been found so serving it up
-              print('it works')
+              #print('it works')
               found = True 
               fileserved = open('/var/www/html' + fileToBeServed, 'r')
               content = fileserved.read()
@@ -37,7 +37,7 @@ def walkSend(fileToBeServed):
         conn.sendall(b'Content-Type: text/html\n')
         conn.sendall(b'\n')
         conn.sendall(b'no dawg')
-        print("404")
+        #print("404")
 
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
