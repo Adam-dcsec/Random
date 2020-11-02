@@ -65,4 +65,6 @@ while True:
     
     #Running function to serve content
     walkSend(serveMe)
+    
+    #close connection
     conn.close()
