@@ -6,9 +6,10 @@ import os
 
 HOST = '' 
 PORT = 8080 
+
 #test = 'index.html'
 
-#Function that dirwalks recursively and endings content based on if file was found in webroot or not
+#Function that dirwalks recursively and sends content based on if file was found not
 def walkSend(fileToBeServed):
     found = False
     os.chdir("/var/www/html")
